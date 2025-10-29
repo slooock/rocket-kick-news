@@ -1,8 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Clock } from "lucide-react";
+import Image, { type StaticImageData } from "next/image";
 
 interface NewsCardProps {
-  image: string;
+  image: string | StaticImageData;
   category: string;
   title: string;
   excerpt: string;
@@ -16,10 +17,12 @@ const NewsCard = ({ image, category, title, excerpt, timeAgo, featured }: NewsCa
       <div className="card-gradient rounded-2xl overflow-hidden border border-border h-full">
         {/* Image */}
         <div className="relative overflow-hidden aspect-video">
-          <img 
+          <Image 
             src={image} 
             alt={title}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            width={800}
+            height={450}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
           

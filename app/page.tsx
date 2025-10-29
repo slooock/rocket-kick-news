@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import NewsCard from "@/components/NewsCard";
@@ -54,7 +56,7 @@ const newsData = [
   },
 ];
 
-const Index = () => {
+export default function Home() {
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -107,6 +109,4 @@ const Index = () => {
       </footer>
     </div>
   );
-};
-
-export default Index;
+}

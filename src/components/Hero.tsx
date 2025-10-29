@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock } from "lucide-react";
+import Image from "next/image";
 import heroImage from "@/assets/hero-stadium.jpg";
 
 const Hero = () => {
@@ -8,10 +9,12 @@ const Hero = () => {
     <section className="relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img 
+        <Image 
           src={heroImage} 
           alt="Stadium" 
           className="w-full h-full object-cover opacity-40"
+          fill
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
       </div>
