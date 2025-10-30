@@ -1,11 +1,45 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/hero-stadium.jpg";
 
+interface FeaturedNews {
+  id: number;
+  title: string;
+  excerpt: string;
+  timeAgo: string;
+}
+
 const Hero = () => {
+  const [featuredNews, setFeaturedNews] = useState<FeaturedNews | null>(null);
+
+  useEffect(() => {
+    const fetchFeaturedNews = async () => {
+      try {
+        const response = await fetch('/api/news?limit=1');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.news && data.news.length > 0) {
+            setFeaturedNews(data.news[0]);
+          }
+        }
+      } catch (error) {
+        console.error('Erro ao carregar notícia em destaque:', error);
+      }
+    };
+
+    fetchFeaturedNews();
+  }, []);
+
+  if (!featuredNews) {
+    return null;
+  }
+
   return (
     <section className="relative overflow-hidden">
       {/* Background Image with Overlay */}
@@ -29,17 +63,15 @@ const Hero = () => {
             </Badge>
             
             <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Brasil confirma amistoso contra Argentina em março
+              {featuredNews.title}
             </h2>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              A CBF anunciou oficialmente o clássico sul-americano que promete 
-              reunir as maiores estrelas do futebol mundial. O confronto marca 
-              a preparação das seleções para as Eliminatórias.
+              {featuredNews.excerpt}
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/news/1">
+              <Link href={`/news/${featuredNews.id}`}>
                 <Button size="lg" className="bg-primary hover:bg-primary/90">
                   Ler Matéria Completa
                 </Button>
@@ -47,7 +79,7 @@ const Hero = () => {
               
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="h-4 w-4" />
-                <span>Publicado há 2 horas</span>
+                <span>{featuredNews.timeAgo}</span>
               </div>
             </div>
           </div>
