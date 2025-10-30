@@ -1,8 +1,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Clock } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 
 interface NewsCardProps {
+  id: number;
   image: string | StaticImageData;
   category: string;
   title: string;
@@ -11,9 +13,9 @@ interface NewsCardProps {
   featured?: boolean;
 }
 
-const NewsCard = ({ image, category, title, excerpt, timeAgo, featured }: NewsCardProps) => {
+const NewsCard = ({ id, image, category, title, excerpt, timeAgo, featured }: NewsCardProps) => {
   return (
-    <article className={`group cursor-pointer hover-lift ${featured ? 'md:col-span-2' : ''}`}>
+    <Link href={`/news/${id}`} className={`group cursor-pointer hover-lift ${featured ? 'md:col-span-2' : ''}`}>
       <div className="card-gradient rounded-2xl overflow-hidden border border-border h-full">
         {/* Image */}
         <div className="relative overflow-hidden aspect-video">
@@ -50,7 +52,7 @@ const NewsCard = ({ image, category, title, excerpt, timeAgo, featured }: NewsCa
           </div>
         </div>
       </div>
-    </article>
+    </Link>
   );
 };
 
