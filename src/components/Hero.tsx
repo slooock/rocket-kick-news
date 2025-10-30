@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import heroImage from "@/assets/hero-stadium.jpg";
 
 const Hero = () => {
@@ -38,9 +39,11 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Ler Matéria Completa
-              </Button>
+              <Link href="/news/1">
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  Ler Matéria Completa
+                </Button>
+              </Link>
               
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="h-4 w-4" />

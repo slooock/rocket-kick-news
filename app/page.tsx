@@ -17,14 +17,23 @@ const newsData = [
   {
     id: 1,
     image: newsCelebration,
-    category: "Brasileirão",
-    title: "Flamengo vence clássico e assume liderança do campeonato",
-    excerpt: "Em partida emocionante no Maracanã, o Rubro-Negro conquistou os três pontos e disparou na ponta da tabela.",
-    timeAgo: "há 3 horas",
+    category: "Seleções",
+    title: "Brasil confirma amistoso contra Argentina em março",
+    excerpt: "A CBF anunciou oficialmente o clássico sul-americano que promete reunir as maiores estrelas do futebol mundial.",
+    timeAgo: "há 2 horas",
     featured: true,
   },
   {
     id: 2,
+    image: newsCelebration,
+    category: "Brasileirão",
+    title: "Flamengo vence clássico e assume liderança do campeonato",
+    excerpt: "Em partida emocionante no Maracanã, o Rubro-Negro conquistou os três pontos e disparou na ponta da tabela.",
+    timeAgo: "há 3 horas",
+    featured: false,
+  },
+  {
+    id: 3,
     image: newsChampions,
     category: "Champions League",
     title: "Real Madrid e Manchester City fazem duelo histórico nas quartas",
@@ -32,7 +41,7 @@ const newsData = [
     timeAgo: "há 5 horas",
   },
   {
-    id: 3,
+    id: 4,
     image: newsTransfer,
     category: "Mercado da Bola",
     title: "Barcelona anuncia contratação de jovem promessa brasileira",
@@ -40,7 +49,7 @@ const newsData = [
     timeAgo: "há 6 horas",
   },
   {
-    id: 4,
+    id: 5,
     image: newsTactics,
     category: "Brasileirão",
     title: "Técnico do Palmeiras testa nova formação tática no treino",
@@ -48,7 +57,7 @@ const newsData = [
     timeAgo: "há 8 horas",
   },
   {
-    id: 5,
+    id: 6,
     image: newsBrasileiro,
     category: "Brasileirão",
     title: "Torcida do Corinthians quebra recorde de público na temporada",
@@ -56,7 +65,7 @@ const newsData = [
     timeAgo: "há 10 horas",
   },
   {
-    id: 6,
+    id: 7,
     image: newsChampions,
     category: "Champions League",
     title: "Bayern de Munique goleia e se classifica para as semifinais",
@@ -64,7 +73,7 @@ const newsData = [
     timeAgo: "há 12 horas",
   },
   {
-    id: 7,
+    id: 8,
     image: newsTactics,
     category: "Seleções",
     title: "Seleção Brasileira convoca novos jogadores para eliminatórias",
@@ -72,7 +81,7 @@ const newsData = [
     timeAgo: "há 14 horas",
   },
   {
-    id: 8,
+    id: 9,
     image: newsTransfer,
     category: "Mercado da Bola",
     title: "Chelsea prepara proposta milionária por atacante brasileiro",
@@ -80,7 +89,7 @@ const newsData = [
     timeAgo: "há 16 horas",
   },
   {
-    id: 9,
+    id: 10,
     image: newsCelebration,
     category: "Brasileirão",
     title: "São Paulo vence fora de casa e entra no G4",
@@ -88,7 +97,7 @@ const newsData = [
     timeAgo: "há 18 horas",
   },
   {
-    id: 10,
+    id: 11,
     image: newsChampions,
     category: "Champions League",
     title: "PSG e Milan empatam em jogo eletrizante",
@@ -96,7 +105,7 @@ const newsData = [
     timeAgo: "há 20 horas",
   },
   {
-    id: 11,
+    id: 12,
     image: newsBrasileiro,
     category: "Brasileirão",
     title: "Grêmio anuncia retorno de ídolo ao clube",
@@ -104,7 +113,7 @@ const newsData = [
     timeAgo: "há 22 horas",
   },
   {
-    id: 12,
+    id: 13,
     image: newsTransfer,
     category: "Mercado da Bola",
     title: "Juventus acerta contratação de meio-campista argentino",
@@ -112,7 +121,7 @@ const newsData = [
     timeAgo: "há 1 dia",
   },
   {
-    id: 13,
+    id: 14,
     image: newsTactics,
     category: "Seleções",
     title: "Argentina lidera ranking FIFA após conquista da Copa América",
@@ -120,7 +129,7 @@ const newsData = [
     timeAgo: "há 1 dia",
   },
   {
-    id: 14,
+    id: 15,
     image: newsChampions,
     category: "Champions League",
     title: "Liverpool vence Napoli e garante vaga antecipada nas oitavas",
@@ -128,7 +137,7 @@ const newsData = [
     timeAgo: "há 1 dia",
   },
   {
-    id: 15,
+    id: 16,
     image: newsCelebration,
     category: "Brasileirão",
     title: "Athletico-PR faz goleada histórica no Brasileirão",
