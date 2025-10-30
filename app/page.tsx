@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import NewsCard from "@/components/NewsCard";
@@ -57,6 +58,11 @@ const newsData = [
 ];
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredNews = selectedCategory === "all" 
+    ? newsData 
+    : newsData.filter(news => news.category === selectedCategory);
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -72,12 +78,15 @@ export default function Home() {
                 Fique por dentro de tudo que acontece no mundo do futebol
               </p>
             </div>
-            <CategoryFilter />
+            <CategoryFilter 
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+            />
           </div>
 
           {/* News Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {newsData.map((news) => (
+            {filteredNews.map((news) => (
               <NewsCard key={news.id} {...news} />
             ))}
           </div>
