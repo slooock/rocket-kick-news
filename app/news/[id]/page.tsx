@@ -8,6 +8,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import Navbar from "@/components/Navbar";
 
 import newsCelebration from "@/assets/news-celebration.jpg";
@@ -37,22 +39,6 @@ Esta será a primeira vez em dois anos que as duas seleções se enfrentam em so
   },
   {
     id: 2,
-    image: newsCelebration,
-    category: "Brasileirão",
-    title: "Flamengo vence clássico e assume liderança do campeonato",
-    excerpt: "Em partida emocionante no Maracanã, o Rubro-Negro conquistou os três pontos e disparou na ponta da tabela.",
-    timeAgo: "há 3 horas",
-    content: `O Flamengo conquistou uma vitória importante no clássico carioca realizado no Maracanã na noite desta quarta-feira. Com um gol nos minutos finais, o Rubro-Negro garantiu os três pontos e assumiu a liderança isolada do Campeonato Brasileiro.
-
-A partida foi marcada por grande intensidade desde o início. O time da casa dominou as ações durante todo o primeiro tempo, criando diversas oportunidades de gol. A torcida presente no estádio não parou de apoiar em nenhum momento.
-
-O técnico optou por uma formação mais ofensiva, apostando na velocidade pelos lados do campo. A estratégia funcionou perfeitamente, especialmente no segundo tempo, quando o time conseguiu furar o bloqueio defensivo adversário.
-
-Com essa vitória, o Flamengo chega aos 45 pontos e abre três de vantagem para o segundo colocado. A equipe volta a campo no próximo domingo em busca de manter a excelente sequência de resultados positivos.`,
-    featured: false,
-  },
-  {
-    id: 3,
     image: newsChampions,
     category: "Champions League",
     title: "Real Madrid e Manchester City fazem duelo histórico nas quartas",
@@ -67,7 +53,7 @@ O técnico do Real Madrid destacou em entrevista coletiva que a equipe está pre
 Os jogos estão marcados para as próximas semanas, com a ida acontecendo em Manchester e a volta no Santiago Bernabéu. A expectativa é de grande público e transmissão para mais de 200 países.`,
   },
   {
-    id: 4,
+    id: 3,
     image: newsTransfer,
     category: "Mercado da Bola",
     title: "Barcelona anuncia contratação de jovem promessa brasileira",
@@ -82,7 +68,7 @@ O atleta se destacou no campeonato brasileiro marcando 15 gols e dando 8 assist�
 A apresentação oficial está marcada para a próxima semana no Camp Nou. O jogador deve ser relacionado imediatamente e pode fazer sua estreia já no próximo fim de semana pela La Liga.`,
   },
   {
-    id: 5,
+    id: 4,
     image: newsTactics,
     category: "Brasileirão",
     title: "Técnico do Palmeiras testa nova formação tática no treino",
@@ -97,7 +83,7 @@ Segundo fontes do clube, a decisão foi tomada após análise detalhada do adver
 O Palmeiras busca manter a boa fase e continuar na briga pela parte de cima da tabela. Com essa possível mudança tática, a expectativa é de um jogo mais propositivo e com maior volume ofensivo.`,
   },
   {
-    id: 6,
+    id: 5,
     image: newsBrasileiro,
     category: "Brasileirão",
     title: "Torcida do Corinthians quebra recorde de público na temporada",
@@ -112,7 +98,7 @@ A diretoria do clube comemorou os números e anunciou que está trabalhando para
 Com esse resultado, o Corinthians se mantém firme na busca por seus objetivos na temporada. A próxima partida em casa já tem mais de 30 mil ingressos vendidos antecipadamente.`,
   },
   {
-    id: 7,
+    id: 6,
     image: newsChampions,
     category: "Champions League",
     title: "Bayern de Munique goleia e se classifica para as semifinais",
@@ -125,7 +111,7 @@ Com uma atuação impecável, o Bayern dominou o jogo do início ao fim. Os gols
 O técnico elogiou a postura da equipe e destacou a importância de manter o foco nos próximos desafios. A classificação reforça o favoritismo do Bayern na busca pelo título continental.`,
   },
   {
-    id: 8,
+    id: 7,
     image: newsTactics,
     category: "Seleções",
     title: "Seleção Brasileira convoca novos jogadores para eliminatórias",
@@ -138,7 +124,7 @@ Entre os destaques estão jovens talentos que vêm se destacando no futebol bras
 A comissão técnica acredita que essa renovação será fundamental para o futuro da seleção. Os jogos acontecem nas próximas semanas em confrontos decisivos pelas eliminatórias.`,
   },
   {
-    id: 9,
+    id: 8,
     image: newsTransfer,
     category: "Mercado da Bola",
     title: "Chelsea prepara proposta milionária por atacante brasileiro",
@@ -151,7 +137,7 @@ O atleta é o artilheiro da temporada e chamou atenção de diversos clubes euro
 As negociações devem avançar nas próximas semanas. O clube brasileiro está disposto a negociar mediante o pagamento da multa rescisória estipulada em contrato.`,
   },
   {
-    id: 10,
+    id: 9,
     image: newsCelebration,
     category: "Brasileirão",
     title: "São Paulo vence fora de casa e entra no G4",
@@ -164,7 +150,7 @@ Com essa vitória, o Tricolor paulista chegou aos 35 pontos e subiu para a quart
 O técnico elogiou o desempenho dos jogadores e destacou a importância de manter a sequência positiva. Os próximos jogos serão decisivos para consolidar a posição no G4.`,
   },
   {
-    id: 11,
+    id: 10,
     image: newsChampions,
     category: "Champions League",
     title: "PSG e Milan empatam em jogo eletrizante",
@@ -177,7 +163,7 @@ O jogo foi marcado pela alternância no placar. Quando parecia que uma equipe le
 Ambos os técnicos elogiaram o espetáculo proporcionado e destacaram a entrega dos jogadores. O resultado mantém as duas equipes vivas na briga pela classificação.`,
   },
   {
-    id: 12,
+    id: 11,
     image: newsBrasileiro,
     category: "Brasileirão",
     title: "Grêmio anuncia retorno de ídolo ao clube",
@@ -190,7 +176,7 @@ A contratação foi recebida com entusiasmo pela torcida. O atleta tem grande id
 A apresentação oficial acontece nos próximos dias. O jogador já está treinando com o elenco e pode estrear no próximo fim de semana.`,
   },
   {
-    id: 13,
+    id: 12,
     image: newsTransfer,
     category: "Mercado da Bola",
     title: "Juventus acerta contratação de meio-campista argentino",
@@ -203,7 +189,7 @@ O jogador se destacou na última temporada com passes decisivos, visão de jogo 
 O meio-campista será apresentado oficialmente na próxima semana e já está ansioso para começar sua trajetória no futebol italiano.`,
   },
   {
-    id: 14,
+    id: 13,
     image: newsTactics,
     category: "Seleções",
     title: "Argentina lidera ranking FIFA após conquista da Copa América",
@@ -216,7 +202,7 @@ O título continental foi fundamental para manter a liderança. A equipe comanda
 O Brasil aparece na terceira posição, logo atrás da França. A próxima atualização do ranking acontece após os jogos das eliminatórias.`,
   },
   {
-    id: 15,
+    id: 14,
     image: newsChampions,
     category: "Champions League",
     title: "Liverpool vence Napoli e garante vaga antecipada nas oitavas",
@@ -229,7 +215,7 @@ Com essa vitória, o Liverpool chegou aos 15 pontos e não pode mais ser alcanç
 O técnico elogiou o desempenho e destacou a importância de garantir a classificação antecipada. Agora o foco se volta para o campeonato nacional.`,
   },
   {
-    id: 16,
+    id: 15,
     image: newsCelebration,
     category: "Brasileirão",
     title: "Athletico-PR faz goleada histórica no Brasileirão",
@@ -255,6 +241,7 @@ export default function NewsDetailPage() {
     { id: 2, author: "Maria Santos", text: "Finalmente uma boa notícia!", timeAgo: "há 1 hora" },
   ]);
   const [newComment, setNewComment] = useState("");
+  const [authorName, setAuthorName] = useState("");
 
   if (!news) {
     return (
@@ -278,18 +265,45 @@ export default function NewsDetailPage() {
     setLiked(!liked);
   };
 
-  const handleAddComment = () => {
-    if (newComment.trim()) {
-      setComments([
-        ...comments,
-        {
-          id: comments.length + 1,
-          author: "Você",
-          text: newComment,
-          timeAgo: "agora",
-        },
-      ]);
-      setNewComment("");
+  const handleAddComment = async () => {
+    if (newComment.trim() && authorName.trim()) {
+      try {
+        // Salvar no banco de dados
+        const response = await fetch(`/api/news/${newsId}/comments`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            author: authorName,
+            text: newComment,
+          }),
+        });
+
+        if (response.ok) {
+          const savedComment = await response.json();
+          
+          // Atualizar o estado local
+          setComments([
+            ...comments,
+            {
+              id: savedComment.id,
+              author: savedComment.author,
+              text: savedComment.text,
+              timeAgo: "agora",
+            },
+          ]);
+          
+          // Limpar os campos
+          setNewComment("");
+          setAuthorName("");
+        }
+      } catch (error) {
+        console.error('Erro ao adicionar comentário:', error);
+        alert('Erro ao adicionar comentário. Tente novamente.');
+      }
+    } else {
+      alert('Por favor, preencha seu nome e o comentário.');
     }
   };
 
@@ -357,13 +371,29 @@ export default function NewsDetailPage() {
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-6">Comentários ({comments.length})</h2>
 
-            <div className="mb-6">
-              <Textarea
-                placeholder="Adicione um comentário..."
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-                className="mb-3"
-              />
+            <div className="mb-6 space-y-4">
+              <div>
+                <Label htmlFor="author">Seu nome</Label>
+                <Input
+                  id="author"
+                  type="text"
+                  placeholder="Digite seu nome..."
+                  value={authorName}
+                  onChange={(e) => setAuthorName(e.target.value)}
+                  className="mt-2"
+                />
+              </div>
+              <div>
+                <Label htmlFor="comment">Comentário</Label>
+                <Textarea
+                  id="comment"
+                  placeholder="Adicione um comentário..."
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  rows={4}
+                  className="mt-2"
+                />
+              </div>
               <Button onClick={handleAddComment}>Publicar comentário</Button>
             </div>
 
