@@ -55,14 +55,102 @@ const newsData = [
     excerpt: "Mais de 45 mil torcedores compareceram à Neo Química Arena no último domingo.",
     timeAgo: "há 10 horas",
   },
+  {
+    id: 6,
+    image: newsChampions,
+    category: "Champions League",
+    title: "Bayern de Munique goleia e se classifica para as semifinais",
+    excerpt: "Time alemão fez 4 a 0 e avançou de forma convincente na competição europeia.",
+    timeAgo: "há 12 horas",
+  },
+  {
+    id: 7,
+    image: newsTactics,
+    category: "Seleções",
+    title: "Seleção Brasileira convoca novos jogadores para eliminatórias",
+    excerpt: "Técnico anuncia lista com surpresas e promete renovação no elenco para próximos jogos.",
+    timeAgo: "há 14 horas",
+  },
+  {
+    id: 8,
+    image: newsTransfer,
+    category: "Mercado da Bola",
+    title: "Chelsea prepara proposta milionária por atacante brasileiro",
+    excerpt: "Clube inglês está disposto a investir pesado para contratar o artilheiro da temporada.",
+    timeAgo: "há 16 horas",
+  },
+  {
+    id: 9,
+    image: newsCelebration,
+    category: "Brasileirão",
+    title: "São Paulo vence fora de casa e entra no G4",
+    excerpt: "Tricolor paulista conquistou vitória importante e agora está na zona de classificação para Libertadores.",
+    timeAgo: "há 18 horas",
+  },
+  {
+    id: 10,
+    image: newsChampions,
+    category: "Champions League",
+    title: "PSG e Milan empatam em jogo eletrizante",
+    excerpt: "Partida terminou 3 a 3 com gols nos minutos finais e muita emoção em Paris.",
+    timeAgo: "há 20 horas",
+  },
+  {
+    id: 11,
+    image: newsBrasileiro,
+    category: "Brasileirão",
+    title: "Grêmio anuncia retorno de ídolo ao clube",
+    excerpt: "Veterano volta para casa e promete ajudar o time na luta contra o rebaixamento.",
+    timeAgo: "há 22 horas",
+  },
+  {
+    id: 12,
+    image: newsTransfer,
+    category: "Mercado da Bola",
+    title: "Juventus acerta contratação de meio-campista argentino",
+    excerpt: "Clube italiano confirma acordo por cinco temporadas com jogador revelação da última temporada.",
+    timeAgo: "há 1 dia",
+  },
+  {
+    id: 13,
+    image: newsTactics,
+    category: "Seleções",
+    title: "Argentina lidera ranking FIFA após conquista da Copa América",
+    excerpt: "Seleção albiceleste mantém primeira posição no ranking mundial de seleções.",
+    timeAgo: "há 1 dia",
+  },
+  {
+    id: 14,
+    image: newsChampions,
+    category: "Champions League",
+    title: "Liverpool vence Napoli e garante vaga antecipada nas oitavas",
+    excerpt: "Time inglês dominou o confronto e já está matematicamente classificado para próxima fase.",
+    timeAgo: "há 1 dia",
+  },
+  {
+    id: 15,
+    image: newsCelebration,
+    category: "Brasileirão",
+    title: "Athletico-PR faz goleada histórica no Brasileirão",
+    excerpt: "Furacão aplicou 5 a 0 e alcançou a maior vitória da temporada na competição nacional.",
+    timeAgo: "há 1 dia",
+  },
 ];
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const filteredNews = selectedCategory === "all" 
     ? newsData 
     : newsData.filter(news => news.category === selectedCategory);
+  
+  const displayedNews = filteredNews.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredNews.length;
+
+  const loadMore = () => {
+    setVisibleCount(prev => prev + 8);
+  };
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -86,18 +174,23 @@ export default function Home() {
 
           {/* News Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredNews.map((news) => (
+            {displayedNews.map((news) => (
               <NewsCard key={news.id} {...news} />
             ))}
           </div>
         </section>
 
         {/* Load More */}
-        <div className="text-center mt-12">
-          <button className="text-primary hover:text-primary/80 font-medium transition-colors">
-            Carregar mais notícias
-          </button>
-        </div>
+        {hasMore && (
+          <div className="text-center mt-12">
+            <button 
+              onClick={loadMore}
+              className="text-primary hover:text-primary/80 font-medium transition-colors"
+            >
+              Carregar mais notícias
+            </button>
+          </div>
+        )}
       </main>
 
       {/* Footer */}
