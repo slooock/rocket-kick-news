@@ -26,7 +26,6 @@ Esta será a primeira vez em dois anos que as duas seleções se enfrentam em so
       category: 'Seleções',
       image: '/assets/news-celebration.jpg',
       timeAgo: 'há 2 horas',
-      featured: true,
       likes: 456,
     },
     {
@@ -42,7 +41,6 @@ Os jogos estão marcados para as próximas semanas, com a ida acontecendo em Man
       category: 'Champions League',
       image: '/assets/news-champions.jpg',
       timeAgo: 'há 5 horas',
-      featured: false,
       likes: 187,
     },
     {
@@ -58,7 +56,6 @@ A apresentação oficial está marcada para a próxima semana no Camp Nou. O jog
       category: 'Mercado da Bola',
       image: '/assets/news-transfer.jpg',
       timeAgo: 'há 6 horas',
-      featured: false,
       likes: 312,
     },
     {
@@ -74,7 +71,6 @@ O Palmeiras busca manter a boa fase e continuar na briga pela parte de cima da t
       category: 'Brasileirão',
       image: '/assets/news-tactics.jpg',
       timeAgo: 'há 8 horas',
-      featured: false,
       likes: 143,
     },
     {
@@ -90,7 +86,6 @@ Com esse resultado, o Corinthians se mantém firme na busca por seus objetivos n
       category: 'Brasileirão',
       image: '/assets/news-brasileiro.jpg',
       timeAgo: 'há 10 horas',
-      featured: false,
       likes: 289,
     },
   ];

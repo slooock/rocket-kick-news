@@ -14,7 +14,6 @@ interface News {
   category: string;
   image: string;
   timeAgo: string;
-  featured: boolean;
   likes: number;
 }
 
@@ -87,9 +86,12 @@ export default function Home() {
 
           {/* News Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedNews.map((news) => (
-              <NewsCard key={news.id} {...news} />
-            ))}
+            {displayedNews.map((news, index) => {
+              console.log('Index:', index, 'News:', news);
+              if (index === 0) return null;
+              const isBigCard = index === 1;
+              return <NewsCard key={news.id} {...news} bigCard={isBigCard} />;
+            })}
           </div>
         </section>
 

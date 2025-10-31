@@ -10,12 +10,12 @@ interface NewsCardProps {
   title: string;
   excerpt: string;
   timeAgo: string;
-  featured?: boolean;
+  bigCard?: boolean;
 }
 
-const NewsCard = ({ id, image, category, title, excerpt, timeAgo, featured }: NewsCardProps) => {
+const NewsCard = ({ id, image, category, title, excerpt, timeAgo, bigCard }: NewsCardProps) => {
   return (
-    <Link href={`/news/${id}`} className={`group cursor-pointer hover-lift ${featured ? 'md:col-span-2' : ''}`}>
+    <Link href={`/news/${id}`} className={`group cursor-pointer hover-lift ${bigCard ? 'md:col-span-2' : ''}`}>
       <div className="card-gradient rounded-2xl overflow-hidden border border-border h-full">
         {/* Image */}
         <div className="relative overflow-hidden aspect-video">
@@ -36,9 +36,7 @@ const NewsCard = ({ id, image, category, title, excerpt, timeAgo, featured }: Ne
 
         {/* Content */}
         <div className="p-6">
-          <h3 className={`font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors ${
-            featured ? 'text-2xl' : 'text-xl'
-          }`}>
+          <h3 className="text-xl font-bold mb-2 line-clamp-2 group-hover:text-primary transition-colors">
             {title}
           </h3>
           

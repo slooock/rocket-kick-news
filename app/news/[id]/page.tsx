@@ -20,7 +20,6 @@ interface News {
   category: string;
   image: string;
   timeAgo: string;
-  featured?: boolean;
 }
 
 interface Comment {
