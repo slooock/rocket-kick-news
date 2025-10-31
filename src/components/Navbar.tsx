@@ -32,6 +32,9 @@ const Navbar = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
+            <a href="/news/create">
+              <Button variant="outline">Criar Post</Button>
+            </a>
             <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
               <Search className="h-5 w-5" />
             </Button>

@@ -6,13 +6,14 @@ import { Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import heroImage from "@/assets/hero-stadium.jpg";
+
 
 interface FeaturedNews {
   id: number;
   title: string;
   excerpt: string;
   timeAgo: string;
+  image: string;
 }
 
 const Hero = () => {
@@ -45,8 +46,8 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <Image 
-          src={heroImage} 
-          alt="Stadium" 
+          src={featuredNews.image} 
+          alt={featuredNews.title} 
           className="w-full h-full object-cover opacity-40"
           fill
           priority

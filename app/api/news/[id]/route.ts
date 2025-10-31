@@ -36,3 +36,36 @@ export async function GET(
     );
   }
 }
+
+export async function PATCH(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const parsedId = parseInt(id);
+    const body = await request.json();
+    const { title, content, category, image, excerpt, timeAgo } = body;
+
+    const dataToUpdate: { [key: string]: any } = {};
+    if (title) dataToUpdate.title = title;
+    if (content) dataToUpdate.content = content;
+    if (category) dataToUpdate.category = category;
+    if (image) dataToUpdate.image = image;
+    if (excerpt) dataToUpdate.excerpt = excerpt;
+    if (timeAgo) dataToUpdate.timeAgo = timeAgo;
+
+    const updatedNews = await prisma.news.update({
+      where: { id: parsedId },
+      data: dataToUpdate,
+    });
+
+    return NextResponse.json(updatedNews);
+  } catch (error) {
+    console.error("Error updating news:", error);
+    return NextResponse.json(
+      { error: "Error updating news" },
+      { status: 500 }
+    );
+  }
+}

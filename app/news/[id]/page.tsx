@@ -201,6 +201,11 @@ export default function NewsDetailPage() {
               <Share2 className="h-5 w-5" />
               Compartilhar
             </Button>
+            <Link href={`/news/${newsId}/edit`}>
+              <Button variant="outline" className="gap-2">
+                Editar
+              </Button>
+            </Link>
           </div>
 
           <div className="mb-8">
