@@ -69,3 +69,25 @@ export async function PATCH(
     );
   }
 }
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await params;
+    const newsId = parseInt(id);
+
+    await prisma.news.delete({
+      where: { id: newsId },
+    });
+
+    return NextResponse.json({ message: "News deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting news:", error);
+    return NextResponse.json(
+      { error: "Error deleting news" },
+      { status: 500 }
+    );
+  }
+}

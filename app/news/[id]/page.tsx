@@ -11,6 +11,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Navbar from "@/components/Navbar";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { useRouter } from "next/navigation";
 
 interface News {
   id: number;
@@ -30,6 +42,7 @@ interface Comment {
 }
 
 export default function NewsDetailPage() {
+  const router = useRouter();
   const params = useParams();
   const newsId = parseInt(params.id as string);
 
@@ -60,6 +73,24 @@ export default function NewsDetailPage() {
     
     fetchNewsData();
   }, [newsId]);
+
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`/api/news/${newsId}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        router.push("/");
+      } else {
+        console.error('Failed to delete news post');
+        alert('Failed to delete news post. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error deleting news post:', error);
+      alert('An error occurred while deleting the news post.');
+    }
+  };
 
   if (loading) {
     return (
@@ -206,6 +237,25 @@ export default function NewsDetailPage() {
                 Editar
               </Button>
             </Link>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="destructive" className="gap-2">
+                  Excluir
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Você tem certeza?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Essa ação não pode ser desfeita. Isso excluirá permanentemente a notícia.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleDelete}>Excluir</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
 
           <div className="mb-8">
